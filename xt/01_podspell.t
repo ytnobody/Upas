@@ -8,3 +8,6 @@ __DATA__
 satoshi azuma
 ytnobody@gmail.com
 Upas
+TODO
+memcache
+upas
