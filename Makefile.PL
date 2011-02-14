@@ -2,7 +2,9 @@ use inc::Module::Install;
 name 'Upas';
 all_from 'lib/Upas.pm';
 
-# requires '';
+requires 'Memcached::Server';
+requires 'SUPER';
+requires 'AnyEvent';
 
 tests 't/*.t';
 author_tests 'xt';

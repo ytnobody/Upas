@@ -1,0 +1,30 @@
+#!/usr/bin/env perl
+
+use warnings;
+use strict;
+use Getopt::Std;
+use Upas;
+
+our $VERSION = $Upas::VERSION;
+our %opts = ();
+getopts( "b:p:", \%opts );
+
+sub VERSION_MESSAGE {
+    print <<EOF;
+upas version $VERSION
+
+Usage
+ upas [-b bind_address (default=0.0.0.0)] [-p port(default=4616)]
+
+You can see more information with "perldoc Upas". 
+
+EOF
+    exit;
+}
+
+my $addr = defined $opts{ b } ? $opts{ b } : 0 ;
+my $port = defined $opts{ p } ? $opts{ p } : 4616;
+
+my $u = Upas->new( open => [ [ $addr, $port ] ] );
+$u->run;
+
