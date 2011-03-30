@@ -1,4 +1,5 @@
 use Test::More;
+use Test::Warn;
 use Test::Deep;
 use Test::TCP;
 use Cache::Memcached::Fast;
@@ -28,8 +29,7 @@ for ( 0 .. 9 ) {
     cmp_deeply( $data, [ { id => $_ } ] );
 }
 
-eval { $memd->delete( 'test:id:3' ) };
-is $@, '', "Delete failed: $@";
+warning_is { $memd->delete( 'test:id:3' ) } undef, 'Error when delete'; 
 
 is $memd->get( 'test:id:3' ), undef, 'unperfect deletion';
 
@@ -40,7 +40,6 @@ sub get_data_with_test {
     ok defined $val;
     return unless defined $val;
     my $data;
-    eval { $data = thaw( $val ) };
-    is $@, '', "Error when thaw: $@";
+    warning_is { $data = thaw( $val ); } undef, 'Error when thaw';
     return $data;
 }
