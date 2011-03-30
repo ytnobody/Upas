@@ -11,7 +11,9 @@ tests 't/*.t';
 author_tests 'xt';
 
 test_requires 'Test::More';
-test_requires 'AnyEvent::Memcached';
+test_requires 'Test::Deep';
+test_requires 'Test::TCP';
+test_requires 'Cache::Memcached::Fast';
 
 install_script 'bin/upas';
 

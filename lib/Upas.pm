@@ -71,7 +71,7 @@ sub _expire {
     my $area = shift;
     my $time = time;
     my @tmpdata = ();
-    map { $time < $_->[1] + $_->[2] ? push @tmpdata, $_ : undef } @{ $DATA->{ $area } };
+    map { $time <= $_->[1] + $_->[2] ? push @tmpdata, $_ : undef } @{ $DATA->{ $area } };
     $DATA->{ $area } = \@tmpdata;
 }
 
