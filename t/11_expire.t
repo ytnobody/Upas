@@ -21,7 +21,7 @@ my $memd = Cache::Memcached::Fast->new( {
 $memd->set( 'test', { id => 1 }, 5 );
 for ( 0 .. 10 ) {
     my $val = $memd->get( 'test:id:1' );
-    if ( $_ <= 5 ) {
+    if ( $_ <= 4 ) {
         ok defined $val, "expire 5 sec., elapsed $_ sec.";
         my $data;
         eval { $data = thaw( $val ) };
@@ -45,10 +45,10 @@ my @expect = (
     [ { id => 4 }, { id => 3 }, { id => 2 }, { id => 1 } ],
     [ { id => 4 }, { id => 3 }, { id => 2 }, { id => 1 } ],
     [ { id => 4 }, { id => 3 }, { id => 2 }, { id => 1 } ],
-    [ { id => 4 }, { id => 3 }, { id => 2 }, { id => 1 } ],
     [ { id => 4 }, { id => 3 }, { id => 2 } ],
     [ { id => 4 }, { id => 3 } ],
     [ { id => 4 } ],
+    undef,
     undef,
 );
 
