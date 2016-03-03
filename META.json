@@ -43,8 +43,8 @@
       "runtime" : {
          "requires" : {
             "AnyEvent" : "0",
-            "Memcached::Server" : "0",
-            "Storable" : "0"
+            "JSON" : "0",
+            "Memcached::Server" : "0"
          }
       },
       "test" : {
