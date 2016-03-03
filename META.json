@@ -1,0 +1,74 @@
+{
+   "abstract" : "Memory-array based memcache-daemon",
+   "author" : [
+      "satoshi azuma <ytnobody@gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Minilla/v2.4.1, CPAN::Meta::Converter version 2.150001",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Upas",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples",
+         "author",
+         "builder"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion::Fast" : "0.04",
+            "Test::PAUSE::Permissions" : "0.04",
+            "Test::Pod" : "1.41",
+            "Test::Spellunker" : "v0.2.7"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "AnyEvent" : "0",
+            "Memcached::Server" : "0",
+            "SUPER" : "0",
+            "Storable" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Cache::Memcached::Fast" : "0",
+            "Test::Deep" : "0",
+            "Test::More" : "0",
+            "Test::TCP" : "0",
+            "Test::Warn" : "0"
+         }
+      }
+   },
+   "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/ytnobody/Upas/issues"
+      },
+      "homepage" : "https://github.com/ytnobody/Upas",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/ytnobody/Upas.git",
+         "web" : "https://github.com/ytnobody/Upas"
+      }
+   },
+   "version" : "0.01"
+}
