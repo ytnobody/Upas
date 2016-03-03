@@ -3,7 +3,7 @@ use Test::Warn;
 use Test::Deep;
 use Test::TCP;
 use Cache::Memcached::Fast;
-use Storable qw/ freeze thaw /;
+use JSON;
 use Upas;
 
 my $server = Test::TCP->new(
@@ -19,7 +19,7 @@ my $memd = Cache::Memcached::Fast->new( {
     namespace => 'upas_test',
 } );
 
-ok $memd->set( 'test', freeze( { id => $_ } ) ), "Set $_ failed" for 0 .. 9;
+ok $memd->set( 'test', encode_json( { id => $_ } ) ), "Set $_ failed" for 0 .. 9;
 
 my $data = get_data_with_test( 'test' );
 cmp_deeply( $data, [ map { { id => $_ } } reverse( 0 .. 9 ) ] );
@@ -40,6 +40,6 @@ sub get_data_with_test {
     ok defined $val;
     return unless defined $val;
     my $data;
-    warning_is { $data = thaw( $val ); } undef, 'Error when thaw';
+    warning_is { $data = decode_json( $val ); } undef, 'Error when thaw';
     return $data;
 }

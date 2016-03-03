@@ -44,7 +44,6 @@
          "requires" : {
             "AnyEvent" : "0",
             "Memcached::Server" : "0",
-            "SUPER" : "0",
             "Storable" : "0"
          }
       },

@@ -1,7 +1,6 @@
 requires 'Memcached::Server';
-requires 'SUPER';
 requires 'AnyEvent';
-requires 'Storable';
+requires 'JSON';
 
 on test => sub {
     requires 'Test::More';

@@ -2,16 +2,14 @@
 
 Upas - Memory-array based memcache-daemon
 
-# INSTALL
-
-    $ git clone git://github.com/ytnobody/Upas.git
-    $ cpanm ./Upas
-
 # SYNOPSIS
 
-    ### in your shell
+Start an upas daemon.
+
     $ upas
-    
+
+Then, use via memcached client.
+
     ### your application
     use Cache::Memcached::Fast;
     use Storable qw/ freeze thaw /;
@@ -41,7 +39,7 @@ Upas - Memory-array based memcache-daemon
     $m->delete( 'myhome:id:1' );                     # removed ytnobody from "myhome"...
     $m->set( 'company', freeze $ytnobody, 3600*12 ); # Work!
 
-# USAGE OF upas
+# Usage about upas daemon
 
     $ upas [-b bind_address (default=0.0.0.0)] [-p port(default=4616)]
 
